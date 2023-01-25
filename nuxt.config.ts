@@ -21,4 +21,16 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  googleFonts: {
+    families: {
+      Cabin: true,
+      Cantarell: true,
+      Lato: true,
+      "Noto Sans": true,
+      "Noto Serif": true,
+      Raleway: true,
+      "Open Sans": [500, 600, 700, 800],
+      Poppins: [500, 600, 700, 800],
+    },
+  },
 });
