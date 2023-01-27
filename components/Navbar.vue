@@ -43,10 +43,10 @@ nav {
   font-family: "Poppins";
   font-size: 1.25rem;
   transition: all 0.15s ease-out;
-  backdrop-filter: blur(1rem);
 
   &.scrolled {
     background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(1rem);
   }
 
   ul {
