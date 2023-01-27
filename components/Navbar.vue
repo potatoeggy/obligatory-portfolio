@@ -1,9 +1,25 @@
 <script setup lang="ts">
 import SvgEggLogo from "~~/assets/icons/egg.svg?url";
+
+onBeforeMount(() => {
+  function handleScroll(this: HTMLElement, ev: Event) {
+    // the only thing that scrolls is NOT WINDOW
+    // it's div#hardbg
+    const pos = this.scrollTop;
+    console.log(this);
+    console.error(pos);
+    const el = document.getElementById("nav");
+    if (el) {
+      el.className = pos > 0 ? "scrolled" : "";
+    }
+  }
+  const prop: HTMLElement | null = document.getElementById("hardbg");
+  prop?.addEventListener("scroll", handleScroll);
+});
 </script>
 
 <template>
-  <nav>
+  <nav id="nav">
     <div class="flex items-center gap-4">
       <a href="/"><img :src="SvgEggLogo" /></a>
     </div>
@@ -29,6 +45,12 @@ nav {
   justify-content: space-between;
   font-family: "Poppins";
   font-size: 1.25rem;
+  transition: all 0.15s ease-out;
+  backdrop-filter: blur(1rem);
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.4);
+  }
 
   ul {
     display: flex;
@@ -37,8 +59,10 @@ nav {
       padding: 0.3rem 0.6rem;
       transition: all 0.15s ease-out;
       background: none;
+      display: inline-block;
       &:hover,
       &:focus {
+        transform: rotate(-2deg);
         background: linear-gradient(
             104deg,
             transparent 1%,
@@ -69,5 +93,10 @@ nav {
 
 img {
   height: 3rem;
+  transition: all 0.15s ease-out;
+  &:hover,
+  &:focus {
+    transform: rotate(-5deg);
+  }
 }
 </style>

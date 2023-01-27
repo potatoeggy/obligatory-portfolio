@@ -1,6 +1,6 @@
 <template>
   <Navbar />
-  <div class="bg">
+  <div class="bg" id="hardbg">
     <DiffusedBackground />
     <div>
       <div class="enveloper">
