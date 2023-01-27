@@ -5,12 +5,9 @@ onBeforeMount(() => {
   function handleScroll(this: HTMLElement, ev: Event) {
     // the only thing that scrolls is NOT WINDOW
     // it's div#hardbg
-    const pos = this.scrollTop;
-    console.log(this);
-    console.error(pos);
     const el = document.getElementById("nav");
     if (el) {
-      el.className = pos > 0 ? "scrolled" : "";
+      el.className = this.scrollTop > 0 ? "scrolled" : "";
     }
   }
   const prop: HTMLElement | null = document.getElementById("hardbg");
