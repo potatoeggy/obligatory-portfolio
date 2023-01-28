@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Project } from "@/data/projects";
+import SvgSplatter from "~~/assets/img/splatter.svg?url";
 const props = defineProps<{
   project: Project;
   reverse?: boolean;
@@ -11,6 +12,51 @@ const imgUrl = props.project.img
 </script>
 
 <template>
+  <div class="wrapper">
+    <img :src="SvgSplatter" />
+    <div class="content">
+      <h3>
+        <a :href="project.href">{{ project.name }}</a>
+      </h3>
+      <p>{{ project.license }}</p>
+      <p>{{ project.description }}</p>
+      <div>
+        <button>Source code</button>
+        <button>Retrospective</button>
+        <button>See it in action!</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped lang="scss">
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.wrapper img {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  background: #ffffff99;
+  box-shadow: 0 0 1rem 1rem #fff9;
+  border-top-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+</style>
+
+<!--
+    <template>
   <a :href="project.href" class="no-underline project-anchor">
     <div class="card flex items-center justify-between">
       <div class="card-text h-full px-4 py-2">
@@ -47,7 +93,7 @@ const imgUrl = props.project.img
       <div class="card-img h-full p-4 flex" :style="{ '--imgurl': imgUrl }" />
     </div>
   </a>
-</template>
+</template> -->
 
 <style scoped>
 .project-anchor {
@@ -110,12 +156,6 @@ html.dark .card-img {
 
 a.unclickable {
   pointer-events: none;
-}
-
-h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.6;
 }
 
 @media screen and (max-width: 720px) {

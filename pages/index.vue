@@ -12,7 +12,10 @@ import BigBrushUrl from "~~/assets/img/brush-small.svg?url";
           </h1>
           <h2>Hi, I'm Daniel!</h2>
 
-          <p>You want animations? You want gradients? You're getting them.</p>
+          <p>
+            You want bells? Whistles like many you've seen before? You're
+            getting them.
+          </p>
           <p>
             While you're here, why don't you check out
             <a class="highlight" href="https://eggworld.me">my real website?</a>
@@ -40,11 +43,24 @@ import BigBrushUrl from "~~/assets/img/brush-small.svg?url";
     <!--<ScreenBrush />-->
     <img class="brushdivider" :src="BigBrushUrl" />
   </div>
+  <h2 class="heading" id="about">About</h2>
   <IndexAbout />
+  <h2 class="heading" id="projects">Projects</h2>
   <IndexProjects />
 </template>
 
 <style scoped lang="scss">
+h2.heading {
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Plus Jakarta Sans", "-apple-system", "BlinkMacSystemFont",
+    "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  overflow-wrap: break-word;
+  font-weight: 900;
+  padding-top: 5%;
+  padding-bottom: 2%;
+  color: black;
+}
 .wrapper {
   height: 100vh;
   display: flex;
@@ -210,10 +226,12 @@ p a {
 
 .brushdivider {
   position: absolute;
-  width: 100%;
-  left: 1rem;
-  top: 80vh;
+  width: 300vh;
+  left: 10%;
+  top: 50vh;
+  max-width: none;
   z-index: -1;
+  rotate: 10deg;
 }
 
 .highlight {

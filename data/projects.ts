@@ -8,6 +8,8 @@ export type Language =
   | "markdown"
   | "flutter"
   | "android";
+
+export type MadeWith = "mypy" | "fastapi" | "postgres";
 export interface Project {
   name: string;
   href: string;
@@ -17,6 +19,10 @@ export interface Project {
   langs: Language[];
   license?: "AGPL-3.0" | "GPL-3.0" | "MIT" | "LGPL-3.0";
 }
+
+// TODO: we have so many projects that they should
+// be filterable by their category
+// e.g., full stack, server, client, embedded
 
 export const projects: Project[] = [
   {
@@ -58,15 +64,6 @@ export const projects: Project[] = [
     longDescription: "My first project with a JS framework!",
   },
   {
-    name: "Eifueo",
-    href: "https://github.com/potatoeggy/eifueo",
-    langs: ["markdown"],
-    license: "GPL-3.0",
-    img: "eifueo.webp",
-    description: "A collection of rewritten notes to remember things better.",
-    longDescription: "THIS IS NOT A TEXTBOOK.",
-  },
-  {
     name: "Napbot",
     href: "https://github.com/potatoeggy/napbot",
     langs: ["python"],
@@ -97,7 +94,7 @@ export const projects: Project[] = [
   {
     name: "RecipeReady",
     href: "https://github.com/christopherlam888/recipe-ready-frontend",
-    langs: ["python", "android", "flutter"],
+    langs: ["python", "android", "flutter"], // SQL
     img: "recipeready.webp",
     description:
       "Android app to automagically plan meals and prepare a shopping list so you don't have to.",
@@ -112,13 +109,36 @@ export const projects: Project[] = [
       "Automatically update fanfiction in a Calibre database to instantly update them on your Kobo.",
   },
   {
-    name: "Website",
-    href: "https://github.com/potatoeggy/public",
-    description:
-      "This website! It's gone through three iterations before this one, and this one's the first to use a framework.",
-    langs: ["typescript", "vue"],
+    name: "Comicon",
+    href: "https://github.com/potatoeggy/comicon",
+    langs: ["python"],
     license: "AGPL-3.0",
-    img: "public.webp",
+    description: "Nothing",
+  },
+  {
+    name: "Aoto",
+    href: "https://github.com/potatoeggy/aoto",
+    langs: ["typescript", "react"], // SQL, Golang
+  },
+  {
+    name: "PillowⓇ Water Quality Aggregator",
+    href: "https://github.com/potatoeggy/ece198",
+    langs: [], // rust
+  },
+  {
+    name: "Tenacity",
+    href: "https://github.com/potatoeggy/tenacity",
+    langs: ["typescript", "react"],
+  },
+  {
+    name: "Aleister",
+    href: "https://github.com/potatoeggy/aleister",
+    langs: [], // rust
+  },
+  {
+    name: "Linux server",
+    href: "https://eggworld.me",
+    langs: [],
   },
 ];
 

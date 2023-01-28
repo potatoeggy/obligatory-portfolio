@@ -2,18 +2,16 @@
 import projects from "~~/data/projects";
 </script>
 <template>
-  <ul>
-    <li class="projectcard" v-for="(proj, i) in projects" :key="i">
-      <ProjectCard :project="proj" v-if="i % 2 === 0" />
-      <div class="description">{{ proj.name }}</div>
-      <ProjectCard :project="proj" v-if="i % 2 === 1" />
-    </li>
-  </ul>
-
   <p>
     What you are seeing now is the culmination of the centuries-old design
     principle known as "random bullshit go".
   </p>
+
+  <ul>
+    <li class="projectcard" v-for="(proj, i) in projects" :key="i">
+      <ProjectCard :project="proj" />
+    </li>
+  </ul>
 </template>
 
 <style scoped lang="scss">
@@ -27,7 +25,7 @@ import projects from "~~/data/projects";
 ul {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 }
 .projectcard {
   display: flex;

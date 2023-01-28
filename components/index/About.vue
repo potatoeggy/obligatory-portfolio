@@ -1,7 +1,6 @@
 <script setup lang="ts"></script>
 
 <template>
-  <h1 id="about">About</h1>
   <div class="left-right">
     <div class="content-general">
       <p>
@@ -29,17 +28,6 @@
 </template>
 
 <style scoped lang="scss">
-h1 {
-  text-align: center;
-  font-size: 3rem;
-  font-family: "Plus Jakarta Sans", "-apple-system", "BlinkMacSystemFont",
-    "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-  overflow-wrap: break-word;
-  font-weight: 900;
-  padding-top: 5%;
-  padding-bottom: 2%;
-}
-
 .left-right {
   display: flex;
   width: 100%;

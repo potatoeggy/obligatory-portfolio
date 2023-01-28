@@ -33,6 +33,7 @@ onBeforeMount(() => {
           ><img class="github-logo" :src="SvgGitHubLogo"
         /></a>
       </li>
+      <li class="hamburger"><HamburgerNav /></li>
     </ul>
   </nav>
 </template>
@@ -110,7 +111,6 @@ img {
   &:focus {
     transform: rotate(-5deg);
   }
-  max-height: 3rem;
 }
 
 img.github-logo {
@@ -131,6 +131,28 @@ a.home-button {
 
   &:hover {
     @apply highlight-nav;
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .hamburger {
+    display: flex;
+    width: 4rem;
+    opacity: 1;
+
+    &:hover {
+      transform: none;
+      background: none;
+      cursor: pointer;
+    }
+  }
+
+  ul li:not(.hamburger) {
+    display: none;
   }
 }
 </style>
