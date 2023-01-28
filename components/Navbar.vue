@@ -24,21 +24,24 @@ onBeforeMount(() => {
         <p>Daniel Chen</p>
       </a>
     </div>
-    <ul class="flex items-center">
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/resume.pdf" target="_blank">Resume</a></li>
-      <li><a href="https://eggworld.me">Real Website</a></li>
-      <li>
-        <a href="https://github.com/potatoeggy"
-          ><img class="github-logo" :src="SvgGitHubLogo"
-        /></a>
-      </li>
-      <li class="hamburger"><HamburgerNav /></li>
-    </ul>
+    <div>
+      <ul class="flex items-center">
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/resume.pdf" target="_blank">Resume</a></li>
+        <li><a href="https://eggworld.me">Real Website</a></li>
+        <li>
+          <a href="https://github.com/potatoeggy"
+            ><img class="github-logo" :src="SvgGitHubLogo"
+          /></a>
+        </li>
+      </ul>
+      <div class="hamburger"><HamburgerNav /></div>
+    </div>
   </nav>
 </template>
 
 <style scoped lang="scss">
+$nav-mobile: 750px;
 nav {
   position: fixed;
   z-index: 10;
@@ -73,6 +76,20 @@ nav {
       &:focus {
         @apply highlight-nav;
       }
+    }
+  }
+
+  @media screen and (max-width: $nav-mobile) {
+    ul {
+      gap: 0rem;
+      li {
+        width: 0;
+        height: 0;
+        padding: 0 0;
+        font-size: 0;
+      }
+      width: 0;
+      height: 0;
     }
   }
 }
@@ -135,7 +152,9 @@ a.home-button {
 }
 
 .hamburger {
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 @media screen and (max-width: 750px) {
@@ -143,16 +162,13 @@ a.home-button {
     display: flex;
     width: 4rem;
     opacity: 1;
+    height: 4rem;
 
     &:hover {
       transform: none;
       background: none;
       cursor: pointer;
     }
-  }
-
-  ul li:not(.hamburger) {
-    display: none;
   }
 }
 </style>

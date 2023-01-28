@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Project } from "@/data/projects";
 import SvgSplatter from "~~/assets/img/splatter.svg?url";
+
 const props = defineProps<{
   project: Project;
   reverse?: boolean;
@@ -12,7 +13,7 @@ const imgUrl = props.project.img
 </script>
 
 <template>
-  <div class="wrapper">
+  <div :class="['wrapper', { reverse }]">
     <img :src="SvgSplatter" />
     <div class="content">
       <h3>
@@ -33,11 +34,15 @@ const imgUrl = props.project.img
 .wrapper {
   display: flex;
   width: 100%;
-}
 
-.wrapper img {
-  flex-grow: 1;
-  width: 100%;
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
+  img {
+    flex-grow: 1;
+    width: 100%;
+  }
 }
 
 .content {

@@ -9,7 +9,7 @@ import projects from "~~/data/projects";
 
   <ul>
     <li class="projectcard" v-for="(proj, i) in projects" :key="i">
-      <ProjectCard :project="proj" />
+      <ProjectCard :project="proj" :reverse="i % 2 === 0" />
     </li>
   </ul>
 </template>

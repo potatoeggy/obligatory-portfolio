@@ -228,10 +228,10 @@ p a {
   position: absolute;
   width: 300vh;
   left: 10%;
-  top: 50vh;
+  top: 55vh;
   max-width: none;
   z-index: -1;
-  rotate: 10deg;
+  rotate: 15deg;
 }
 
 .highlight {

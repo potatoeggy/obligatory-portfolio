@@ -105,7 +105,7 @@ input.checkbox:checked ~ .drawer,
   border-left: var(--tri-size) solid transparent;
   border-right: var(--tri-size) solid transparent;
   border-bottom: var(--tri-size) solid var(--drawer-bg);
-  right: 1.8rem;
+  right: 2.5rem;
   top: -0.53rem; /*calc(-1 * var(--tri-size));*/
   transition: border var(--trans);
 }

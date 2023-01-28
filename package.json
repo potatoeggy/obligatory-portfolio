@@ -21,7 +21,7 @@
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.0.0-1",
     "@nuxtjs/tailwindcss": "^6.2.0",
-    "@vueuse/motion": "^2.0.0-beta.25",
+    "@vueuse/motion": "^2.0.0-beta.27",
     "dayjs": "^1.11.7"
   }
 }
