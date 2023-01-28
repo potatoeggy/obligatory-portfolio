@@ -5,6 +5,7 @@ import svgLoader from "vite-svg-loader";
 export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   modules: [
+    "@nuxt/content",
     "@nuxtjs/google-fonts",
     "@nuxtjs/tailwindcss",
     "@vueuse/motion/nuxt",

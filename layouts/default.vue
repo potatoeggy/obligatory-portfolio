@@ -2,11 +2,11 @@
   <Navbar />
   <div class="bg" id="hardbg">
     <DiffusedBackground />
-    <div>
+    <main>
       <div class="enveloper">
         <slot />
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
