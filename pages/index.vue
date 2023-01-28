@@ -39,12 +39,17 @@ import BigBrushUrl from "~~/assets/img/brush-small.svg?url";
     <!--<Carousel />-->
     <!--<ScreenBrush />-->
     <img class="brushdivider" :src="BigBrushUrl" />
-    <IndexAbout />
-    <IndexProjects />
   </div>
+  <IndexAbout />
+  <IndexProjects />
 </template>
 
 <style scoped lang="scss">
+.wrapper {
+  height: 100vh;
+  display: flex;
+  padding-top: 10%;
+}
 span.arrow {
   display: inline-block;
   button:hover & {
@@ -207,7 +212,8 @@ p a {
   position: absolute;
   width: 100%;
   left: 1rem;
-  bottom: -40%;
+  top: 80vh;
+  z-index: -1;
 }
 
 .highlight {
