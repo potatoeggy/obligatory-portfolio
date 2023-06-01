@@ -2,7 +2,7 @@
 
 <template>
   <div class="left-right">
-    <div class="content-general">
+    <div class="content-general" v-motion-slide-visible-left>
       <p>
         I'm a student studying computer engineering at the University of
         Waterloo.
@@ -18,11 +18,20 @@
       <p>Yada yada yada passion.</p>
     </div>
     <div class="top-down">
-      <div class="content-general">
+      <div class="content-general" v-motion-slide-visible-top>
         In my spare time, you can find me reading and writing all sorts of
         stories, playing games, and attempting to spend time with my friends :)
       </div>
-      <div class="content-general">This month's soundtrack:</div>
+      <div class="content-general" v-motion-slide-visible-bottom>
+        Once again, I must encourage you to visit
+        <a class="brush-highlight underline" href="https://eggworld.me"
+          >my actual website</a
+        >.
+        <ul class="list-disc px-8">
+          <li>It has actual content</li>
+          <li>It doesn't implode if you turn off JavaScript</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -30,7 +39,7 @@
 <style scoped lang="scss">
 .left-right {
   display: flex;
-  width: 100%;
+  width: 80%;
   gap: 3rem;
 }
 
@@ -55,5 +64,11 @@
 
 p + p {
   padding-top: 1rem;
+}
+
+a {
+  text-decoration: underline;
+  text-decoration-skip-ink: all;
+  text-decoration-thickness: 0.1rem;
 }
 </style>

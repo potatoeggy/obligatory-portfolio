@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Project } from "@/data/projects";
+import SvgGithub from "~~/assets/icons/github.svg?url";
 import SvgSplatter from "~~/assets/img/splatter.svg?url";
 
 const props = defineProps<{
@@ -13,24 +14,74 @@ const imgUrl = props.project.img
 </script>
 
 <template>
-  <div :class="['wrapper', { reverse }]">
-    <img :src="SvgSplatter" />
-    <div class="content">
-      <h3>
-        <a :href="project.href">{{ project.name }}</a>
-      </h3>
-      <p>{{ project.license }}</p>
-      <p>{{ project.description }}</p>
+  <!-- TODO: add a <noscript> that forces css visible-->
+  <div
+    :class="['wrapper', { reverse }]"
+    v-motion-slide-visible-right="reverse"
+    v-motion-slide-visible-left="!reverse"
+  >
+    <img
+      :src="project.img ? `/images/projects/${project.img}` : SvgSplatter"
+      class="max-h-72 p-4 img-mask"
+    />
+    <div class="content flex flex-col justify-between">
       <div>
-        <button>Source code</button>
-        <button>Retrospective</button>
-        <button>See it in action!</button>
+        <a class="brush-highlight p-1" :href="project.href">
+          <h3 class="flex gap-2 items-center">
+            <span>{{ project.name }}</span>
+            <img :src="SvgGithub" alt="GitHub" class="h-8 w-8" />
+          </h3>
+        </a>
+        <p class="text-gray-500 pb-2 pl-1">{{ project.license }}</p>
+      </div>
+
+      <div class="flex-grow pb-4 text-lg pl-2">
+        <p>{{ project.description }}</p>
+      </div>
+
+      <div class="flex flex-col">
+        <div class="flex items-center font-semibold gap-2">
+          Languages
+          <span class="flex gap-2 items-center justify-around">
+            <img
+              class="h-5 w-5 m-0"
+              :src="`/images/langs/${lang}.svg`"
+              v-for="(lang, index) in project.langs"
+              :key="index"
+            />
+          </span>
+        </div>
+        <div
+          class="flex items-center font-semibold gap-2"
+          v-if="project.madeWith"
+        >
+          Made with
+          <span class="flex gap-2 items-center justify-around">
+            <img
+              class="h-5 w-5 m-0"
+              :src="`/images/langs/${lang}.svg`"
+              v-for="(lang, index) in project.langs"
+              :key="index"
+            />
+          </span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+img.img-mask {
+  mask-image: url("assets/img/splatter.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+}
+a.brush-highlight {
+  &:hover {
+    rotate: -5deg;
+  }
+}
 .wrapper {
   display: flex;
   width: 100%;
@@ -51,6 +102,7 @@ const imgUrl = props.project.img
   box-shadow: 0 0 1rem 1rem #fff9;
   border-top-left-radius: 10%;
   border-bottom-right-radius: 10%;
+  padding: 1rem;
 }
 
 h3 {

@@ -3,7 +3,7 @@ import { defineNuxtConfig } from "nuxt/config";
 import svgLoader from "vite-svg-loader";
 
 export default defineNuxtConfig({
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/main.scss"],
   modules: [
     "@nuxt/content",
     "@nuxtjs/google-fonts",

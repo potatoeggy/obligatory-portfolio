@@ -22,16 +22,16 @@ import BigBrushUrl from "~~/assets/img/brush-small.svg?url";
           </p>
         </div>
         <div class="intro-button-box">
-          <button>
+          <button v-motion-pop>
             <a href="#about">More about me <span class="down arrow">↓</span></a>
           </button>
-          <button>
+          <button v-motion-pop>
             <a href="#projects"
               >What I've made <span class="down arrow">↓</span></a
             >
           </button>
-          <button>
-            <a href="/blog"
+          <button v-motion-pop>
+            <a href="https://eggworld.me//blog"
               >What I have to say <span class="right arrow">→</span></a
             >
           </button>
@@ -43,13 +43,21 @@ import BigBrushUrl from "~~/assets/img/brush-small.svg?url";
     <!--<ScreenBrush />-->
     <img class="brushdivider" :src="BigBrushUrl" />
   </div>
-  <h2 class="heading" id="about">About</h2>
-  <IndexAbout />
-  <h2 class="heading" id="projects">Projects</h2>
-  <IndexProjects />
+  <div class="flex flex-col padder">
+    <h2 class="heading" id="about">About</h2>
+    <IndexAbout />
+    <h2 class="heading" id="projects">Projects</h2>
+    <IndexProjects />
+  </div>
 </template>
 
 <style scoped lang="scss">
+.padder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 h2.heading {
   text-align: center;
   font-size: 3rem;
@@ -110,12 +118,11 @@ span.arrow {
     font-size: 1.25rem;
     background: #ffeeee88;
     padding: 0.75rem;
-    opacity: 0;
     box-shadow: 0.1rem 0.1rem 0.5rem 2px gray;
     transition: all 0.2s ease;
 
     &:hover {
-      transform: rotate(-2deg);
+      rotate: -2deg;
       background: linear-gradient(
           104deg,
           transparent 1%,
@@ -135,30 +142,6 @@ span.arrow {
       border-radius: 0.2rem;
       text-shadow: 0 0 0 rgba(255, 133, 247, 0.7), 0.4rem -0.7rem 0.6rem #fff,
         -0.2rem -0.5rem 1.2rem rgba(255, 255, 255, 1);
-    }
-
-    @for $i from 1 through 3 {
-      &:nth-child(#{$i}) {
-        @keyframes button-slide-in-#{$i} {
-          0% {
-            transform: translateX(-3rem);
-            opacity: 1;
-          }
-          90% {
-            transform: translateX(1rem);
-          }
-          100% {
-            transform: translate(0);
-            opacity: 1;
-          }
-        }
-
-        transition: 1s ease-in-out all transform;
-        animation-name: button-slide-in-#{$i};
-        animation-duration: 0.75s;
-        animation-delay: $i * 0.5s + 1.5s; // wait for title to finish
-        animation-fill-mode: forwards;
-      }
     }
   }
 }
@@ -182,6 +165,7 @@ span.arrow {
       opacity: 1;
     }
   }
+
   h1.main-title > span:nth-child(#{$i}) {
     opacity: 0;
     transition: 1s ease all;

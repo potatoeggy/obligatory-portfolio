@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const navItems = [
-  { title: "Blog", href: "/blog" },
-  { title: "Resume", href: "/resume.pdf" },
+  { title: "Blog", href: "https://eggworld.me/blog" },
+  // { title: "Resume", href: "/resume.pdf" },
   { title: "Real Website", href: "https://eggworld.me" },
 ];
 </script>

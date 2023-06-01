@@ -2,16 +2,18 @@
 import projects from "~~/data/projects";
 </script>
 <template>
-  <p>
-    What you are seeing now is the culmination of the centuries-old design
-    principle known as "random bullshit go".
-  </p>
+  <div class="contain">
+    <p class="pb-12 text-xl">
+      What you are seeing now is the culmination of the centuries-old design
+      principle known as "random bullshit go".
+    </p>
 
-  <ul>
-    <li class="projectcard" v-for="(proj, i) in projects" :key="i">
-      <ProjectCard :project="proj" :reverse="i % 2 === 0" />
-    </li>
-  </ul>
+    <ul>
+      <li class="projectcard" v-for="(proj, i) in projects" :key="i">
+        <ProjectCard :project="proj" :reverse="i % 2 === 0" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -22,6 +24,9 @@ import projects from "~~/data/projects";
 // shade the image
 
 // then code / retrospective buttons
+div.contain {
+  width: 80%;
+}
 ul {
   display: flex;
   flex-direction: column;

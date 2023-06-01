@@ -1,20 +1,11 @@
-# Nuxt 3 Minimal Starter
+# Egg Portfolio
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Disgusting. It's a site full of JavaScript. If you turn JavaScript off, nearly everything breaks. I'm not a designer (random bullshit go!), but I am a fan of pretty gradients and moving lines, so consider this a secondary site to my [main website](https://eggworld.me).
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
-# yarn
 yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
 ```
 
 ## Development Server
@@ -22,21 +13,5 @@ pnpm install
 Start the development server on http://localhost:3000
 
 ```bash
-npm run dev
+yarn dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

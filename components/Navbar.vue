@@ -26,8 +26,8 @@ onBeforeMount(() => {
     </div>
     <div>
       <ul class="flex items-center">
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/resume.pdf" target="_blank">Resume</a></li>
+        <li><a href="https://eggworld.me/blog">Blog</a></li>
+        <!-- <li><a href="/resume.pdf" target="_blank">Resume</a></li> -->
         <li><a href="https://eggworld.me">Real Website</a></li>
         <li>
           <a href="https://github.com/potatoeggy"

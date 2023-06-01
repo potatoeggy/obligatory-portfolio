@@ -7,17 +7,22 @@ export type Language =
   | "react"
   | "markdown"
   | "flutter"
-  | "android";
+  | "android"
+  | "rust";
 
 export type MadeWith = "mypy" | "fastapi" | "postgres";
 export interface Project {
   name: string;
   href: string;
   img?: string;
+  year: string;
   description?: string;
   longDescription?: string;
   langs: Language[];
+  madeWith?: MadeWith[];
   license?: "AGPL-3.0" | "GPL-3.0" | "MIT" | "LGPL-3.0";
+  retroHref?: string;
+  inActionHref?: string;
 }
 
 // TODO: we have so many projects that they should
@@ -29,29 +34,32 @@ export const projects: Project[] = [
     name: "Mandown",
     href: "https://github.com/potatoeggy/mandown",
     description:
-      "A comic downloader and converter to CBZ / EPUB / PDF for my Kobo.",
+      "A comic downloader and converter to CBZ / EPUB / PDF for my Kobo. Available via CLI, Qt GUI, and Python library. After splitting our homegrown converter into its own project, it now supports interconverting between all three formats!",
     longDescription: "Available via CLI and a Qt GUI!",
     langs: ["python"],
     license: "AGPL-3.0",
     img: "mandown.webp",
+    year: "2022",
   },
-  {
-    name: "Noveldown",
-    href: "https://github.com/potatoeggy/noveldown",
-    langs: ["python"],
-    license: "LGPL-3.0",
-    description:
-      "A webnovel downloader and converter to EPUB for my Kobo, with lots of metadata!",
-    longDescription: "Heavily borrows Mandown's design.",
-  },
+  // {
+  //   name: "Noveldown",
+  //   href: "https://github.com/potatoeggy/noveldown",
+  //   langs: ["python"],
+  //   license: "LGPL-3.0",
+  //   description:
+  //     "A webnovel downloader and converter to EPUB for my Kobo, with lots of metadata!",
+  //   longDescription: "Heavily borrows Mandown's design.",
+  // },
   {
     name: "Jeopardy",
     href: "https://github.com/potatoeggy/jeopardy",
     img: "jeopardy.webp",
     langs: ["typescript", "vue"],
     license: "AGPL-3.0",
-    description: "Kahoot-inspired Jeopardy! game, including Final Jeopardy!",
+    description:
+      "Kahoot-inspired Jeopardy! game, including Final Jeopardy! A first foray into Vue 3's Composition API, heavily inspired by React hooks. Written with a heavy focus on animation, smoothness, and getting the damn thing working. Created for Bayview's Computer Club.",
     longDescription: "Created for Bayview's Computer Club.",
+    year: "2022",
   },
   {
     name: "Primoprod",
@@ -60,8 +68,9 @@ export const projects: Project[] = [
     langs: ["typescript", "vue"],
     license: "AGPL-3.0",
     description:
-      "A game simulator to increase productivity with quests and gambling.",
+      "A game simulator to increase productivity with quests and gambling with the aim of realism and imitating the base game as much as possible. Written to start learning web development!",
     longDescription: "My first project with a JS framework!",
+    year: "2021",
   },
   {
     name: "Napbot",
@@ -69,8 +78,9 @@ export const projects: Project[] = [
     langs: ["python"],
     license: "AGPL-3.0",
     description:
-      "A Discord bot initially to track sleep hours as friendly competition but is now a local music bot with synchronised lyrics!",
+      "A Discord bot initially to increase sleep hours via leaderboards and competition. Now a local music bot that loads metadata and renders real-time synchronised lyrics.",
     img: "napbot.webp",
+    year: "2021",
   },
   {
     name: "Resketch",
@@ -78,8 +88,9 @@ export const projects: Project[] = [
     langs: ["typescript", "react"],
     img: "resketch.webp",
     description:
-      'A "reverse-Pictionary" where you compete to have an AI recognise your drawings.',
+      'A "reverse-Pictionary" where you compete to have an AI recognise your drawings. Written for YRHacks 2022.',
     longDescription: "Written for YRHacks 2022.",
+    year: "2022",
   },
   {
     name: "Perdiem",
@@ -88,8 +99,9 @@ export const projects: Project[] = [
     license: "AGPL-3.0",
     img: "perdiem.webp",
     description:
-      "A pretty budget tracking app where I learned too much about server-side rendering.",
+      "A pretty budget tracking app where I learned too much about server-side rendering. Written for StormHacks 2022.",
     longDescription: "Written for StormHacks 2022.",
+    year: "2022",
   },
   {
     name: "RecipeReady",
@@ -97,48 +109,37 @@ export const projects: Project[] = [
     langs: ["python", "android", "flutter"], // SQL
     img: "recipeready.webp",
     description:
-      "Android app to automagically plan meals and prepare a shopping list so you don't have to.",
+      'Android app to automagically (randomly) choose pre-scraped recipes from the web and generate a shopping list via standardising ingredient identification. Includes a web scraper, REST API, and a database. (Commonly known as a "full stack application.") Written for Hack the North 2021.',
     longDescription: "Written for Hack the North 2021.",
+    year: "2021",
   },
+  // {
+  //   name: "AutoFicFare",
+  //   href: "https://github.com/potatoeggy/autoficfare",
+  //   langs: ["python"],
+  //   license: "GPL-3.0",
+  //   description:
+  //     "Automatically update fanfiction in a Calibre database to instantly update them on your Kobo.",
+  // },
+  // {
+  //   name: "Comicon",
+  //   href: "https://github.com/potatoeggy/comicon",
+  //   langs: ["python"],
+  //   license: "AGPL-3.0",
+  //   description: "Nothing",
+  // },
+  // {
+  //   name: "Aoto",
+  //   href: "https://github.com/potatoeggy/aoto",
+  //   langs: ["typescript", "react"], // SQL, Golang
+  // },
   {
-    name: "AutoFicFare",
-    href: "https://github.com/potatoeggy/autoficfare",
-    langs: ["python"],
-    license: "GPL-3.0",
-    description:
-      "Automatically update fanfiction in a Calibre database to instantly update them on your Kobo.",
-  },
-  {
-    name: "Comicon",
-    href: "https://github.com/potatoeggy/comicon",
-    langs: ["python"],
-    license: "AGPL-3.0",
-    description: "Nothing",
-  },
-  {
-    name: "Aoto",
-    href: "https://github.com/potatoeggy/aoto",
-    langs: ["typescript", "react"], // SQL, Golang
-  },
-  {
-    name: "PillowⓇ Water Quality Aggregator",
+    name: "PillowⓇ",
     href: "https://github.com/potatoeggy/ece198",
-    langs: [], // rust
-  },
-  {
-    name: "Tenacity",
-    href: "https://github.com/potatoeggy/tenacity",
-    langs: ["typescript", "react"],
-  },
-  {
-    name: "Aleister",
-    href: "https://github.com/potatoeggy/aleister",
-    langs: [], // rust
-  },
-  {
-    name: "Linux server",
-    href: "https://eggworld.me",
-    langs: [],
+    langs: ["rust"], // rust
+    description:
+      "Water quality statistics aggregator for the STM32 microcontroller. Written in Rust because the recommended C++ platform had the worst Intellisense I have ever seen. Also, we hate segfaults in this household.",
+    year: "2022",
   },
 ];
 
